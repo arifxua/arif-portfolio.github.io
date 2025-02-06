@@ -1,1 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Md. Arifur Rahman - Portfolio</title>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(to right, #FFDEE9, #B5FFFC);
+      color: #333;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Header */
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      padding: 15px 0;
+      transition: 0.3s;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ff4b88;
+    }
+
+    /* Mobile Menu */
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+    }
+
+    /* Hero Section */
+    #hero {
+      background: url('https://unsplash.com/photos/koOdUvfGr4c/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8M3x8Y29kaW5nfGVufDB8MXx8fDE3Mzg4MTg0Nzh8MA&force=true') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 150px 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    #hero h2 {
+      font-size: 2.5rem;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    #hero p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #ff4b88;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 15px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #e63e76;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 0.6s ease-in-out;
+    }
+
+    section.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Projects */
+    .project-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .project {
+      background: white;
+      padding: 20px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      transform: scale(1.05);
+    }
+
+    /* Contact */
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .contact-links a {
+      text-decoration: none;
+      color: white;
+      background: #ff4b88;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .contact-links a:hover {
+      background: #e63e76;
+    }
+
+    /* Footer */
+    footer {
+      background: #ff4b88;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 20px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-50px);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container header-container">
+      <h1>Md. Arifur Rahman</h1>
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+      <nav>
+        <ul id="menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero">
+    <div class="container">
+      <h2>Welcome to My Portfolio</h2>
+      <p>I'm a passionate developer and future businessman.</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I'm Md. Arifur Rahman, a developer who loves creating useful applications and exploring business opportunities.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2>My Projects</h2>
+
+      <div class="project-list">
+
+        <div class="project">
+          <h3>🌐 Social Media App</h3>
+          <p>A Facebook-like social media platform built using PHP.</p>
+        </div>
+
+        <div class="project">
+          <h3>💬 Chatting App</h3>
+          <p>A real-time chat app in Java without Firebase.</p>
+        </div>
+
+        <div class="project">
+          <h3>🕌 Prayer Time App</h3>
+          <p>Shows daily prayer times for Muslims.</p>
+        </div>
+
+        <div class="project">
+          <h3>📝 Note App</h3>
+          <p>A simple note-taking app with local storage.</p>
+        </div>
+
+        <div class="project">
+          <h3>🔐 Password Manager</h3>
+          <p>Securely store and manage passwords.</p>
+        </div>
+
+        <div class="project">
+          <h3>🌍 Language Translator</h3>
+          <p>Translate text into multiple languages.</p>
+        </div>
+
+        <div class="project">
+          <h3>🎮 Tic-Tac-Toe Game</h3>
+          <p>Classic Tic-Tac-Toe game with AI mode.</p>
+        </div>
+
+        <div class="project">
+          <h3>💰 Live Currency Converter</h3>
+          <p>Real-time exchange rates for global currencies.</p>
+        </div>
+
+        <div class="project">
+          <h3>📱 Android Launcher</h3>
+          <p>Custom home screen launcher for Android.</p>
+        </div>
+
+        <div class="project">
+          <h3>🔁 Text Repeater</h3>
+          <p>Repeat text multiple times with one tap.</p>
+        </div>
+
+        <div class="project">
+          <h3>📩 WhatsApp Auto Messenger</h3>
+          <p>Send automated messages on WhatsApp.</p>
+        </div>
+
+        <div class="project">
+          <h3>🖼️ Wallpaper App</h3>
+          <p>Browse and download HD wallpapers.</p>
+        </div>
+
+        <div class="project">
+          <h3>🎵 TuneX (YouTube Audio Player)</h3>
+          <p>Stream and play YouTube music as audio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <div class="contact-links">
+        <a href="mailto:arif@example.com">📧 Email Me</a>
+        <a href="https://linkedin.com/in/arifurrahman" target="_blank">🔗 LinkedIn</a>
+        <a href="https://github.com/arif" target="_blank">💻 GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Md. Arifur Rahman. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const sections = document.querySelectorAll("section");
+
+      function revealSections() {
+        sections.forEach((section) => {
+          if (section.getBoundingClientRect().top < window.innerHeight - 50) {
+            section.classList.add("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", revealSections);
+      revealSections();
+    });
+  </script>
+
+</body>
+
+</html>
